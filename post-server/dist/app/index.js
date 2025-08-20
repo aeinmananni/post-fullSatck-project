@@ -10,6 +10,7 @@ const posts_routes_1 = __importDefault(require("../routes/posts.routes"));
 const app = (0, express_1.default)();
 app.use(express_1.default.json());
 app.use((0, compression_1.default)());
-app.use((0, cors_1.default)());
+app.use((0, cors_1.default)({ credentials: false }));
+app.use(express_1.default.urlencoded({ extended: true }));
 app.use("/api/posts", posts_routes_1.default);
 exports.default = app;
